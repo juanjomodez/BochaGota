@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BochaGota · Cuida cada gota en Bochalema</title>
+  <meta name="description" content="BochaGota: plataforma para concientizar sobre el uso del agua en Bochalema, Cali. Calcula tu huella hídrica doméstica y descubre cómo mejorar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4C22 20 12 31 12 42a20 20 0 0 0 40 0C52 31 42 20 32 4z' fill='%2338b6e8'/%3E%3Cpath d='M22 44c2 6 7 9 12 9' stroke='white' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- ===================== NAVEGACIÓN ===================== -->
+  <header class="nav" id="top">
+    <a href="#inicio" class="brand" aria-label="BochaGota, ir al inicio">
+      <svg class="brand-drop" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 4C22 20 12 31 12 42a20 20 0 0 0 40 0C52 31 42 20 32 4z" fill="var(--azul)"/>
+        <path d="M18 46c6 4 16 6 28-2" stroke="var(--verde)" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <circle cx="24" cy="36" r="4" fill="#fff"/>
+      </svg>
+      <span>Bocha<b>Gota</b></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#idea">La idea</a>
+      <a href="#bochalema">Bochalema</a>
+      <a href="#encuesta">Encuesta</a>
+      <a href="#datos">Resultados</a>
+      <a href="#cuidar">Cómo cuidar</a>
+      <a href="#huella" class="nav-cta">Calcula tu huella</a>
+      <a href="#recibo">Tu recibo</a>
+      <a href="#proyecto">El proyecto</a>
+    </nav>
+  </header>
+
+  <!-- Barra de progreso de lectura -->
+  <div class="progress-bar" aria-hidden="true"><div id="progress"></div></div>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio">
+      <div class="hero-text reveal">
+        <p class="eyebrow">Bochalema · Cali · Valle del Cauca</p>
+        <h1>Bocha<span>Gota</span></h1>
+        <p class="tagline">Mide tu huella, cuida cada gota.</p>
+        <p class="lead">
+          Una plataforma para entender cómo usamos el agua en los hogares de Bochalema,
+          descubrir qué estamos haciendo bien y qué podemos mejorar. Sin registros,
+          sin datos guardados: entras, respondes y aprendes.
+        </p>
+        <div class="hero-actions">
+          <a href="#huella" class="btn btn-primary">Calcular mi huella hídrica</a>
+          <a href="#idea" class="btn btn-ghost">Conocer la idea</a>
+        </div>
+        <ul class="hero-stats">
+          <li><strong data-count="32">0</strong><span>hogares encuestados</span></li>
+          <li><strong data-count="3">0</strong><span>unidades residenciales con recibos</span></li>
+          <li><strong data-count="2">0</strong><span>periodos de facturación analizados</span></li>
+        </ul>
+      </div>
+
+      <!-- Ilustración principal: casa con gota y ciudad -->
+      <div class="hero-art reveal" aria-hidden="true">
+        <svg viewBox="0 0 480 420">
+          <defs>
+            <linearGradient id="gCielo" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#d9f3ff"/>
+              <stop offset="1" stop-color="#ffffff"/>
+            </linearGradient>
+            <linearGradient id="gGota" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8fe0ff"/>
+              <stop offset="1" stop-color="#2ea7dc"/>
+            </linearGradient>
+          </defs>
+          <circle cx="240" cy="210" r="200" fill="url(#gCielo)"/>
+          <!-- montañas Farallones -->
+          <path d="M40 270 L120 170 L170 220 L230 140 L300 230 L350 180 L440 270 Z" fill="#bfe9cf"/>
+          <path d="M230 140 L250 166 L238 164 L226 176 L214 160 Z" fill="#fff"/>
+          <!-- edificios -->
+          <g fill="#ffffff" stroke="#8cc9e6" stroke-width="3">
+            <rect x="90" y="210" width="60" height="110" rx="6"/>
+            <rect x="160" y="180" width="70" height="140" rx="6"/>
+            <rect x="300" y="200" width="66" height="120" rx="6"/>
+          </g>
+          <g fill="#bfe8fb">
+            <rect x="102" y="226" width="14" height="14" rx="2"/><rect x="124" y="226" width="14" height="14" rx="2"/>
+            <rect x="102" y="252" width="14" height="14" rx="2"/><rect x="124" y="252" width="14" height="14" rx="2"/>
+            <rect x="174" y="196" width="16" height="16" rx="2"/><rect x="200" y="196" width="16" height="16" rx="2"/>
+            <rect x="174" y="224" width="16" height="16" rx="2"/><rect x="200" y="224" width="16" height="16" rx="2"/>
+            <rect x="174" y="252" width="16" height="16" rx="2"/><rect x="200" y="252" width="16" height="16" rx="2"/>
+            <rect x="314" y="216" width="14" height="14" rx="2"/><rect x="338" y="216" width="14" height="14" rx="2"/>
+            <rect x="314" y="244" width="14" height="14" rx="2"/><rect x="338" y="244" width="14" height="14" rx="2"/>
+          </g>
+          <!-- palmeras -->
+          <g class="sway">
+            <path d="M268 320 C266 280 270 250 276 226" stroke="#7a5a3a" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M276 226 C256 214 240 218 230 228 M276 226 C292 210 312 212 322 222 M276 226 C270 206 280 194 292 190 M276 226 C262 206 250 200 238 204" stroke="#5cc785" stroke-width="9" fill="none" stroke-linecap="round"/>
+          </g>
+          <!-- suelo -->
+          <path d="M20 320 Q240 300 460 320 L460 360 Q240 380 20 360 Z" fill="#a8e6b8"/>
+          <!-- río -->
+          <path class="river" d="M30 350 C120 330 180 372 260 352 S400 334 455 350" stroke="#5cc7f0" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <!-- gota gigante -->
+          <g class="float">
+            <path d="M240 20 C214 62 186 92 186 122 a54 54 0 0 0 108 0 C294 92 266 62 240 20z" fill="url(#gGota)"/>
+            <ellipse cx="220" cy="112" rx="8" ry="14" fill="#fff" opacity=".8"/>
+            <!-- carita -->
+            <circle cx="226" cy="128" r="5" fill="#0b3b5c"/>
+            <circle cx="254" cy="128" r="5" fill="#0b3b5c"/>
+            <path d="M228 144 q12 10 24 0" stroke="#0b3b5c" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <circle cx="216" cy="140" r="5" fill="#ffb3c1" opacity=".7"/>
+            <circle cx="264" cy="140" r="5" fill="#ffb3c1" opacity=".7"/>
+          </g>
+          <!-- gotitas -->
+          <g fill="#7fd3f5">
+            <path class="drip d1" d="M140 60 c-6 10 -10 15 -10 20 a10 10 0 0 0 20 0 c0 -5 -4 -10 -10 -20z"/>
+            <path class="drip d2" d="M350 80 c-5 8 -8 12 -8 16 a8 8 0 0 0 16 0 c0 -4 -3 -8 -8 -16z"/>
+            <path class="drip d3" d="M390 150 c-4 7 -7 10 -7 13 a7 7 0 0 0 14 0 c0 -3 -3 -6 -7 -13z"/>
+          </g>
+        </svg>
+      </div>
+
+      <a href="#idea" class="scroll-hint" aria-label="Bajar a la siguiente sección">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- Ola divisoria -->
+    <div class="wave wave-down" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 40 C240 80 480 0 720 30 S1200 70 1440 30 L1440 80 L0 80Z"/></svg>
+    </div>
+
+    <!-- ===================== LA IDEA ===================== -->
+    <section class="section section-blue" id="idea">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">01 · La idea</p>
+          <h2>¿Qué es BochaGota?</h2>
+          <p>
+            Es un aplicativo web educativo que nace de una investigación sobre el uso del agua
+            en las viviendas de Bochalema. La idea es sencilla: si cada persona conoce cuánta agua
+            usa y en qué actividades, es más fácil cambiar hábitos y evitar el desperdicio.
+          </p>
+        </header>
+
+        <div class="steps">
+          <article class="step-card reveal">
+            <div class="step-num">1</div>
+            <svg viewBox="0 0 120 100" aria-hidden="true">
+              <rect x="20" y="14" width="80" height="74" rx="10" fill="#fff" stroke="#38b6e8" stroke-width="4"/>
+              <path d="M34 34 h52 M34 50 h40 M34 66 h46" stroke="#a8e6b8" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="92" cy="20" r="14" fill="#5cc785"/>
+              <path d="M85 20 l5 5 l9 -10" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>Conoce el contexto</h3>
+            <p>Mira qué está pasando con el agua en Bochalema y qué respondieron los vecinos en la encuesta.</p>
+          </article>
+          <article class="step-card reveal">
+            <div class="step-num">2</div>
+            <svg viewBox="0 0 120 100" aria-hidden="true">
+              <path d="M60 10 C46 32 34 46 34 60 a26 26 0 0 0 52 0 C86 46 74 32 60 10z" fill="#7fd3f5"/>
+              <path d="M44 66 q16 14 32 0" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <rect x="70" y="58" width="40" height="30" rx="6" fill="#fff" stroke="#5cc785" stroke-width="3"/>
+              <path d="M78 80 v-8 M88 80 v-14 M98 80 v-10" stroke="#5cc785" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <h3>Responde el cuestionario</h3>
+            <p>Doce preguntas rápidas sobre tus hábitos: ducha, cepillado, lavadora, riego, fugas y más.</p>
+          </article>
+          <article class="step-card reveal">
+            <div class="step-num">3</div>
+            <svg viewBox="0 0 120 100" aria-hidden="true">
+              <circle cx="60" cy="52" r="36" fill="#a8e6b8"/>
+              <path d="M60 52 L60 16 A36 36 0 0 1 94 62 Z" fill="#38b6e8"/>
+              <circle cx="60" cy="52" r="16" fill="#fff"/>
+              <path d="M53 52 l5 5 l9 -10" stroke="#5cc785" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>Recibe tu diagnóstico</h3>
+            <p>Te mostramos tu huella hídrica doméstica estimada, lo que haces bien y en qué puedes mejorar.</p>
+          </article>
+          <article class="step-card reveal">
+            <div class="step-num">4</div>
+            <svg viewBox="0 0 120 100" aria-hidden="true">
+              <rect x="22" y="16" width="76" height="72" rx="10" fill="#fff" stroke="#5cc785" stroke-width="4"/>
+              <rect x="22" y="16" width="76" height="18" rx="9" fill="#5cc785"/>
+              <g fill="#7fd3f5"><circle cx="40" cy="50" r="6"/><circle cx="60" cy="50" r="6"/><circle cx="80" cy="50" r="6"/><circle cx="40" cy="70" r="6"/></g>
+              <g fill="#e3f6ea"><circle cx="60" cy="70" r="6"/><circle cx="80" cy="70" r="6"/></g>
+            </svg>
+            <h3>Toma el reto</h3>
+            <p>Acepta el reto de 7 días con pequeñas acciones y lleva el control desde tu propio navegador.</p>
+          </article>
+        </div>
+
+        <!-- Datos curiosos -->
+        <div class="facts reveal">
+          <h3>¿Sabías que…?</h3>
+          <div class="fact-carousel" aria-live="polite">
+            <p id="fact-text">Una llave abierta puede dejar salir entre 6 y 12 litros de agua por minuto.</p>
+          </div>
+          <div class="fact-controls">
+            <button class="icon-btn" id="fact-prev" aria-label="Dato anterior">‹</button>
+            <div class="fact-dots" id="fact-dots"></div>
+            <button class="icon-btn" id="fact-next" aria-label="Dato siguiente">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BOCHALEMA ===================== -->
+    <section class="section" id="bochalema">
+      <div class="container two-col">
+        <div class="reveal">
+          <p class="eyebrow">02 · El territorio</p>
+          <h2>Bochalema, al sur de Cali</h2>
+          <p>
+            Bochalema está en la <strong>zona de expansión urbana del sur de Santiago de Cali</strong>,
+            muy cerca de la Universidad Autónoma de Occidente. En los últimos años ha crecido
+            rápidamente con nuevos conjuntos y unidades residenciales, y con ellos aumenta
+            la demanda de servicios públicos como el acueducto.
+          </p>
+          <p>
+            En 2025 la Personería de Cali hizo seguimiento al suministro de agua en Bochalema
+            y sectores cercanos, señalando la necesidad de fortalecer el acueducto para responder
+            al crecimiento de la población. En 2026 se informó que la estación de bombeo del
+            sector tiene una capacidad superior a la demanda actual, pensada para el crecimiento
+            del sur de la ciudad.
+          </p>
+          <p class="note">
+            Más viviendas significa más demanda de agua. Por eso los hábitos de cada hogar importan.
+          </p>
+          <ul class="legend">
+            <li><span class="dot dot-unit"></span> Barrio Bochalema</li>
+            <li><span class="dot dot-uao"></span> Autopista Cali – Jamundí y Av. Bicentenario</li>
+            <li><span class="dot dot-river"></span> Universidad Autónoma de Occidente</li>
+          </ul>
+        </div>
+
+        <figure class="map-card reveal">
+          <!-- Mapa ilustrado de Bochalema, dibujado a partir de la trama de calles del barrio -->
+          <svg viewBox="0 0 640 470" role="img" aria-labelledby="mapTitle mapDesc" id="mapa">
+            <title id="mapTitle">Mapa ilustrado del barrio Bochalema</title>
+            <desc id="mapDesc">Dibujo de las calles del barrio Bochalema en el sur de Cali: la Autopista Cali–Jamundí al occidente, la Avenida Bicentenario (Calle 48) al oriente, las carreras 109 a 116, las calles 28 a 46 y la Universidad Autónoma de Occidente al sur.</desc>
+            <defs><pattern id="pHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#ffffff"/><path d="M0 0 V8" stroke="#d6e6ee" stroke-width="3"/></pattern></defs>
+            <rect width="640" height="470" rx="24" fill="#f3f9fc"/>
+            <path d="M584 0 H640 V470 H560 C566 420 580 380 584 330Z" fill="#cdeedd"/>
+            <g fill="#a8e6b8"><circle cx="612" cy="120" r="9"/><circle cx="600" cy="300" r="8"/><circle cx="622" cy="410" r="10"/><circle cx="606" cy="40" r="7"/></g>
+            <path d="M78 352 L272 360 L272 440 L78 440 Z" fill="#e3f6ea" stroke="#a8e6b8" stroke-width="2"/>
+            <rect x="320" y="368" width="92" height="66" rx="6" fill="url(#pHatch)" stroke="#cfe3ee" stroke-width="2"/>
+            <rect x="70" y="52" width="192" height="148" rx="6" fill="#eaf3f7"/>
+            <rect x="240" y="62" width="14" height="16" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="98" y="102" width="25" height="18" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="128" y="60" width="26" height="18" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="91" y="86" width="18" height="16" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="282" y="62" width="56" height="88" rx="6" fill="#eaf3f7"/>
+            <rect x="293" y="126" width="12" height="19" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="304" y="126" width="22" height="20" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="298" y="69" width="21" height="19" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="294" y="84" width="12" height="18" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="293" y="102" width="14" height="18" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="352" y="64" width="58" height="86" rx="6" fill="#eaf3f7"/>
+            <rect x="392" y="108" width="13" height="19" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="360" y="75" width="17" height="11" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="383" y="117" width="19" height="20" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="428" y="66" width="48" height="86" rx="6" fill="#eaf3f7"/>
+            <rect x="443" y="89" width="21" height="17" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="439" y="80" width="24" height="12" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="442" y="116" width="20" height="17" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="434" y="77" width="16" height="19" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="436" y="132" width="14" height="15" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="492" y="68" width="68" height="86" rx="6" fill="#eaf3f7"/>
+            <rect x="531" y="112" width="22" height="11" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="527" y="130" width="23" height="15" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="282" y="184" width="56" height="31" rx="6" fill="#eaf3f7"/>
+            <rect x="290" y="188" width="16" height="17" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="352" y="186" width="58" height="34" rx="6" fill="#eaf3f7"/>
+            <rect x="378" y="190" width="16" height="16" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="363" y="197" width="17" height="12" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="364" y="201" width="15" height="14" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="387" y="191" width="18" height="16" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="373" y="192" width="19" height="16" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="428" y="188" width="48" height="34" rx="6" fill="#eaf3f7"/>
+            <rect x="443" y="202" width="23" height="16" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="434" y="194" width="15" height="12" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="439" y="192" width="15" height="20" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="437" y="196" width="25" height="19" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="492" y="190" width="68" height="35" rx="6" fill="#eaf3f7"/>
+            <rect x="530" y="199" width="14" height="16" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="535" y="194" width="14" height="18" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="70" y="222" width="118" height="68" rx="6" fill="#eaf3f7"/>
+            <rect x="124" y="232" width="18" height="16" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="81" y="238" width="22" height="16" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="94" y="233" width="15" height="17" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="87" y="226" width="21" height="10" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="120" y="265" width="20" height="11" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="206" y="226" width="56" height="64" rx="6" fill="#eaf3f7"/>
+            <rect x="229" y="254" width="25" height="13" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="221" y="268" width="22" height="14" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="282" y="246" width="56" height="44" rx="6" fill="#eaf3f7"/>
+            <rect x="317" y="264" width="13" height="11" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="288" y="254" width="19" height="14" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="309" y="258" width="23" height="15" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="302" y="250" width="25" height="12" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="290" y="267" width="20" height="15" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="352" y="248" width="58" height="44" rx="6" fill="#eaf3f7"/>
+            <rect x="378" y="260" width="22" height="11" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="367" y="276" width="26" height="12" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="380" y="268" width="20" height="18" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="375" y="258" width="22" height="13" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="428" y="250" width="48" height="42" rx="6" fill="#eaf3f7"/>
+            <rect x="438" y="270" width="23" height="13" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="432" y="262" width="17" height="10" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="454" y="273" width="16" height="13" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="443" y="256" width="19" height="15" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="447" y="260" width="13" height="13" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="492" y="252" width="68" height="42" rx="6" fill="#eaf3f7"/>
+            <rect x="535" y="256" width="19" height="19" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="518" y="268" width="26" height="20" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="503" y="270" width="25" height="20" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="70" y="302" width="192" height="36" rx="6" fill="#eaf3f7"/>
+            <rect x="185" y="316" width="19" height="12" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="192" y="312" width="24" height="16" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="117" y="310" width="23" height="12" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="282" y="304" width="56" height="36" rx="6" fill="#eaf3f7"/>
+            <rect x="311" y="318" width="21" height="17" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="301" y="313" width="21" height="19" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="290" y="308" width="20" height="18" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="352" y="306" width="58" height="36" rx="6" fill="#eaf3f7"/>
+            <rect x="369" y="316" width="20" height="12" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="369" y="314" width="12" height="14" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="428" y="306" width="48" height="38" rx="6" fill="#eaf3f7"/>
+            <rect x="445" y="312" width="16" height="18" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="446" y="324" width="26" height="15" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="436" y="318" width="25" height="18" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="432" y="317" width="20" height="18" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="492" y="308" width="68" height="38" rx="6" fill="#eaf3f7"/>
+            <rect x="507" y="316" width="24" height="12" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="531" y="313" width="21" height="11" rx="3" fill="#fff4d6" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="428" y="370" width="132" height="66" rx="6" fill="#eaf3f7"/>
+            <rect x="503" y="377" width="24" height="11" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="437" y="380" width="15" height="14" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="529" y="378" width="20" height="10" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="496" y="412" width="17" height="19" rx="3" fill="#ffffff" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="489" y="406" width="23" height="14" rx="3" fill="#dff1fb" stroke="#c9dde8" stroke-width="1.2"/>
+            <rect x="96" y="372" width="40" height="18" rx="4" fill="#ffffff" stroke="#9ccfe6" stroke-width="1.5"/>
+            <rect x="150" y="368" width="30" height="30" rx="4" fill="#ffffff" stroke="#9ccfe6" stroke-width="1.5"/>
+            <rect x="196" y="380" width="46" height="16" rx="4" fill="#ffffff" stroke="#9ccfe6" stroke-width="1.5"/>
+            <rect x="110" y="404" width="26" height="22" rx="4" fill="#ffffff" stroke="#9ccfe6" stroke-width="1.5"/>
+            <rect x="160" y="410" width="54" height="18" rx="4" fill="#ffffff" stroke="#9ccfe6" stroke-width="1.5"/>
+            <rect x="228" y="404" width="30" height="24" rx="4" fill="#ffffff" stroke="#9ccfe6" stroke-width="1.5"/>
+            <path d="M60 44 C250 40 450 52 640 62" stroke="#cfe3ee" stroke-width="13" fill="none" stroke-linecap="round"/>
+            <path d="M60 44 C250 40 450 52 640 62" stroke="#ffffff" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M272 162 L572 176" stroke="#cfe3ee" stroke-width="11" fill="none" stroke-linecap="round"/>
+            <path d="M272 162 L572 176" stroke="#ffffff" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <path d="M58 206 L272 220 L572 236" stroke="#cfe3ee" stroke-width="13" fill="none" stroke-linecap="round"/>
+            <path d="M58 206 L272 220 L572 236" stroke="#ffffff" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M130 292 L572 300" stroke="#cfe3ee" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M130 292 L572 300" stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M64 336 L272 344 L572 360" stroke="#cfe3ee" stroke-width="13" fill="none" stroke-linecap="round"/>
+            <path d="M64 336 L272 344 L572 360" stroke="#ffffff" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M70 448 L640 440" stroke="#cfe3ee" stroke-width="12" fill="none" stroke-linecap="round"/>
+            <path d="M70 448 L640 440" stroke="#ffffff" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <path d="M272 0 V470" stroke="#cfe3ee" stroke-width="13" fill="none" stroke-linecap="round"/>
+            <path d="M272 0 V470" stroke="#ffffff" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M196 220 V340" stroke="#cfe3ee" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <path d="M196 220 V340" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M345 0 V344" stroke="#cfe3ee" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <path d="M345 0 V344" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M419 52 V348" stroke="#cfe3ee" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M419 52 V348" stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M484 60 V352" stroke="#cfe3ee" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <path d="M484 60 V352" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M572 360 L640 352" stroke="#cfe3ee" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M572 360 L640 352" stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M130 220 V292" stroke="#cfe3ee" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <path d="M130 220 V292" stroke="#ffffff" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M360 300 V346" stroke="#cfe3ee" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M360 300 V346" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M300 60 V160" stroke="#cfe3ee" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M300 60 V160" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M22 0 C30 160 46 320 66 470" stroke="#cfe3ee" stroke-width="25" fill="none" stroke-linecap="round"/>
+            <path d="M22 0 C30 160 46 320 66 470" stroke="#ffffff" stroke-width="22" fill="none" stroke-linecap="round"/>
+            <path d="M22 0 C30 160 46 320 66 470" stroke="#f3c969" stroke-width="2.5" stroke-dasharray="12 10" fill="none"/>
+            <path d="M576 0 C574 200 570 330 566 470" stroke="#cfe3ee" stroke-width="21" fill="none" stroke-linecap="round"/>
+            <path d="M576 0 C574 200 570 330 566 470" stroke="#ffffff" stroke-width="18" fill="none" stroke-linecap="round"/>
+            <path d="M576 0 C574 200 570 330 566 470" stroke="#f3c969" stroke-width="2.5" stroke-dasharray="12 10" fill="none"/>
+            <path d="M-5 -4 L4 0 L-5 4" transform="translate(40 250) rotate(-90)" stroke="#9ab3c2" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M-5 -4 L4 0 L-5 4" transform="translate(48 330) rotate(-90)" stroke="#9ab3c2" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M-5 -4 L4 0 L-5 4" transform="translate(160 212) rotate(180)" stroke="#9ab3c2" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M-5 -4 L4 0 L-5 4" transform="translate(420 230) rotate(180)" stroke="#9ab3c2" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M-5 -4 L4 0 L-5 4" transform="translate(200 46) rotate(0)" stroke="#9ab3c2" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M-5 -4 L4 0 L-5 4" transform="translate(400 52) rotate(180)" stroke="#9ab3c2" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M-5 -4 L4 0 L-5 4" transform="translate(272 120) rotate(90)" stroke="#9ab3c2" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M-5 -4 L4 0 L-5 4" transform="translate(272 400) rotate(-90)" stroke="#9ab3c2" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <text x="14" y="130" class="map-label map-label-strong" text-anchor="middle" transform="rotate(84 14 130)">Autopista Cali – Jamundí</text>
+            <text x="596" y="190" class="map-label map-label-strong" text-anchor="middle" transform="rotate(-90 596 190)">Av. Bicentenario · Calle 48</text>
+            <text x="160" y="38" class="map-label" text-anchor="middle">Carrera 109</text>
+            <text x="440" y="170" class="map-label" text-anchor="middle" transform="rotate(2.8 440 170)">Carrera 111</text>
+            <text x="140" y="204" class="map-label" text-anchor="middle" transform="rotate(3.7 140 204)">Carrera 112</text>
+            <text x="500" y="226" class="map-label" text-anchor="middle" transform="rotate(3 500 226)">Carrera 112</text>
+            <text x="330" y="290" class="map-label" text-anchor="middle" transform="rotate(1 330 290)">Carrera 113</text>
+            <text x="130" y="332" class="map-label" text-anchor="middle" transform="rotate(3 130 332)">Av. Cañasgordas</text>
+            <text x="440" y="346" class="map-label" text-anchor="middle" transform="rotate(3 440 346)">Calle 115 · Carrera 116</text>
+            <text x="520" y="436" class="map-label" text-anchor="middle" transform="rotate(-1 520 436)">Carrera 116</text>
+            <text x="264" y="120" class="map-label" text-anchor="middle" transform="rotate(-90 264 120)">Calle 42</text>
+            <text x="338" y="110" class="map-label" text-anchor="middle" transform="rotate(-90 338 110)">Calle 43</text>
+            <text x="412" y="120" class="map-label" text-anchor="middle" transform="rotate(-90 412 120)">Calle 44</text>
+            <text x="477" y="130" class="map-label" text-anchor="middle" transform="rotate(-90 477 130)">Calle 46</text>
+            <text x="190" y="280" class="map-label" text-anchor="middle" transform="rotate(-90 190 280)">Calle 28</text>
+            <text x="612" y="350" class="map-label" text-anchor="middle" transform="rotate(-6 612 350)">Calle 50</text>
+            <g class="map-pin" data-info="uao" tabindex="0">
+            <rect x="110" y="380" width="120" height="44" rx="10" fill="#ffffff" opacity=".85"/>
+            <text x="170" y="398" class="map-label map-label-strong" text-anchor="middle">Universidad Autónoma</text>
+            <text x="170" y="414" class="map-label" text-anchor="middle">de Occidente</text>
+            </g>
+            <g class="map-pin" data-info="barrio" tabindex="0">
+            <circle cx="385" cy="205" r="34" fill="rgba(127,211,245,.25)" stroke="#38b6e8" stroke-width="2" stroke-dasharray="6 5"/>
+            <path d="M385 214 c-12 -16 -18 -24 -18 -32 a18 18 0 0 1 36 0 c0 8 -6 16 -18 32z" fill="#38b6e8" stroke="#fff" stroke-width="3"/>
+            <circle cx="385" cy="182" r="7" fill="#fff"/>
+            <rect x="300" y="250" width="170" height="26" rx="13" fill="#0b3b5c"/>
+            <text x="385" y="268" text-anchor="middle" class="map-badge">BARRIO BOCHALEMA</text>
+            </g>
+            <g transform="translate(530 410)"><circle r="20" fill="#fff" stroke="#9ccfe6" stroke-width="2"/><path d="M0 -16 L5 0 L0 3 L-5 0Z" fill="#0b3b5c"/><path d="M0 16 L5 0 L0 -3 L-5 0Z" fill="#9ccfe6"/><text y="-24" text-anchor="middle" class="map-label map-label-strong">N</text></g>
+            </svg>
+
+          <figcaption>
+            <span id="map-info">Toca el barrio o la universidad para ver más información.</span>
+            <small>Ilustración propia de las calles del barrio. No está a escala.</small>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== ENCUESTA ===================== -->
+    <section class="section section-blue" id="encuesta">
+      <div class="container survey reveal">
+        <div class="survey-art" aria-hidden="true">
+          <svg viewBox="0 0 260 220">
+            <circle cx="130" cy="112" r="100" fill="#ffffff"/>
+            <rect x="70" y="30" width="110" height="150" rx="14" fill="#fff" stroke="#38b6e8" stroke-width="5"/>
+            <rect x="100" y="20" width="50" height="22" rx="8" fill="#5cc785"/>
+            <g stroke-linecap="round" stroke-width="7">
+              <path d="M90 70 h12" stroke="#5cc785"/><path d="M112 70 h48" stroke="#cfeefd"/>
+              <path d="M90 100 h12" stroke="#5cc785"/><path d="M112 100 h40" stroke="#cfeefd"/>
+              <path d="M90 130 h12" stroke="#d9f3ff"/><path d="M112 130 h44" stroke="#cfeefd"/>
+            </g>
+            <path d="M86 66 l4 4 l8 -8 M86 96 l4 4 l8 -8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- persona con lápiz -->
+            <circle cx="206" cy="118" r="15" fill="#c99573"/>
+            <path d="M191 116 q15 -24 30 0 q-4 -8 -15 -8 q-11 0 -15 8z" fill="#2b1d16"/>
+            <circle cx="201" cy="120" r="2" fill="#0b3b5c"/><circle cx="211" cy="120" r="2" fill="#0b3b5c"/>
+            <path d="M202 126 q4 3 8 0" stroke="#0b3b5c" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M184 210 q0 -72 22 -72 q22 0 22 72z" fill="#a8e6b8"/>
+            <path d="M190 156 l-26 -20" stroke="#c99573" stroke-width="7" stroke-linecap="round"/>
+            <path d="M162 134 l-14 -14" stroke="#ffd166" stroke-width="6" stroke-linecap="round"/>
+            <path class="drip d1" d="M40 60 c-6 10 -9 14 -9 18 a9 9 0 0 0 18 0 c0 -4 -3 -8 -9 -18z" fill="#7fd3f5"/>
+          </svg>
+        </div>
+        <div>
+          <p class="eyebrow">03 · Participa</p>
+          <h2>¿Vives en Bochalema? Responde la encuesta</h2>
+          <p>
+            Queremos conocer cómo se usa el agua en más hogares del barrio. Tus respuestas son anónimas
+            y nos ayudan a entender mejor los hábitos de consumo y a proponer mejores recomendaciones.
+          </p>
+          <p class="note">
+            Los resultados que ves en esta página se irán actualizando cada cierto tiempo con las respuestas
+            que lleguen a través del formulario.
+          </p>
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfYzcW9DGmVCBM7mKKoBZ9_-hlB77SJ6COIldMnr_a3FRCOWA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
+            Llenar la encuesta ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DATOS DEL ESTUDIO ===================== -->
+    <section class="section section-green" id="datos">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">04 · Resultados</p>
+          <h2>Hábitos de los vecinos de Bochalema</h2>
+          <p>Resultados preliminares de la encuesta aplicada a <strong>32 residentes</strong> de Bochalema. Se actualizarán periódicamente con las nuevas respuestas del formulario.</p>
+        </header>
+
+        <div class="data-grid">
+          <article class="data-card reveal">
+            <h3>Duración de la ducha</h3>
+            <div class="bars" data-bars='[["Menos de 5 min",6],["5 a 10 min",18],["10 a 15 min",6],["Más de 15 min",2]]' data-total="32"></div>
+            <p class="data-note">La mayoría se ducha entre 5 y 10 minutos, pero 8 personas superan los 10.</p>
+          </article>
+
+          <article class="data-card reveal">
+            <h3>¿Cierran la llave al cepillarse?</h3>
+            <div class="donut-wrap">
+              <div class="donut" style="--p:93.75" data-label="94%"></div>
+              <ul class="donut-legend">
+                <li><span class="sw sw-blue"></span> La cierran: 30</li>
+                <li><span class="sw sw-light"></span> Abierta parte del tiempo: 2</li>
+              </ul>
+            </div>
+            <p class="data-note">¡Un hábito ya muy presente en los hogares!</p>
+          </article>
+
+          <article class="data-card reveal">
+            <h3>Lavado de platos</h3>
+            <div class="donut-wrap">
+              <div class="donut" style="--p:78.1" data-label="78%"></div>
+              <ul class="donut-legend">
+                <li><span class="sw sw-blue"></span> Cierran al enjabonar: 25</li>
+                <li><span class="sw sw-light"></span> Abren y cierran varias veces: 7</li>
+              </ul>
+            </div>
+            <p class="data-note">Nadie dijo dejar la llave abierta todo el tiempo.</p>
+          </article>
+
+          <article class="data-card reveal">
+            <h3>Lavado de ropa al mes</h3>
+            <div class="bars" data-bars='[["1 vez",1],["2 veces",3],["3 a 4 veces",14],["Más de 4 veces",14]]' data-total="32"></div>
+            <p class="data-note">28 de 32 hogares lavan 3 o más veces al mes: es uno de los usos más frecuentes.</p>
+          </article>
+
+          <article class="data-card reveal">
+            <h3>Otros usos del agua en casa</h3>
+            <div class="bars" data-bars='[["Riego de plantas",21],["Limpieza de exteriores",17],["Elementos de mascotas",10],["Lavado de vehículos",3]]' data-total="32"></div>
+            <p class="data-note">Pregunta de selección múltiple: personas que realizan cada actividad.</p>
+          </article>
+
+          <article class="data-card reveal">
+            <h3>¿Revisan el recibo del agua?</h3>
+            <div class="bars" data-bars='[["Siempre",12],["Rara vez",15],["No suelen revisarlo",5]]' data-total="32"></div>
+            <p class="data-note"><strong>62,5 %</strong> no revisa con frecuencia su consumo, y 15 personas no saben por qué cambia el valor.</p>
+          </article>
+
+          <article class="data-card reveal">
+            <h3>¿Qué tan informados se sienten?</h3>
+            <div class="bars" data-bars='[["Muy informado(a)",8],["Algo informado(a)",15],["Poco informado(a)",7],["Nada informado(a)",2]]' data-total="32"></div>
+            <p class="data-note">El 28,1 % se siente poco o nada informado sobre el ahorro de agua.</p>
+          </article>
+
+          <article class="data-card reveal">
+            <h3>Fugas en el último año</h3>
+            <div class="bars" data-bars='[["No identificaron",25],["Sí identificaron",2],["No están seguros",5]]' data-total="32"></div>
+            <p class="data-note">5 personas no están seguras: revisar periódicamente ayuda a salir de dudas.</p>
+          </article>
+
+          <article class="data-card data-card-highlight reveal">
+            <h3>¿Qué tan importante es cambiar hábitos?</h3>
+            <div class="stars" aria-label="27 de 32 personas calificaron con 5 estrellas">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="big-number"><span data-count="27">0</span> de 32</p>
+            <p class="data-note">calificaron con 5/5 la importancia de cambiar hábitos para reducir el desperdicio.</p>
+          </article>
+        </div>
+
+        <!-- Comparativo de recibos -->
+        <div class="receipts reveal">
+          <header>
+            <h3>Comparativo de recibos del agua · 3 viviendas</h3>
+            <p>Consumo registrado en julio–agosto (28 días) y agosto–septiembre (30 días) de 2026.</p>
+          </header>
+          <div class="tabs" role="tablist">
+            <button class="tab active" role="tab" aria-selected="true" data-view="total">Consumo total (m³)</button>
+            <button class="tab" role="tab" aria-selected="false" data-view="persona">Por persona (m³)</button>
+            <button class="tab" role="tab" aria-selected="false" data-view="costo">Acueducto + alcantarillado ($)</button>
+          </div>
+          <div class="chart" id="receipt-chart" aria-live="polite"></div>
+          <div class="chart-legend">
+            <span><i class="sw sw-blue"></i> Julio – agosto</span>
+            <span><i class="sw sw-green"></i> Agosto – septiembre</span>
+          </div>
+          <div class="homes">
+            <div class="home"><b>Residencia 1</b><span>1 persona adulta</span></div>
+            <div class="home"><b>Residencia 2</b><span>2 adultos y una niña</span></div>
+            <div class="home"><b>Residencia 3</b><span>Un joven y un adulto</span></div>
+          </div>
+          <p class="data-note">
+            Las tres viviendas sumaron <strong>15 m³</strong> en ambos periodos, pero el consumo diario conjunto
+            bajó de 0,536 a 0,500 m³ porque el segundo periodo tuvo dos días más. El valor del recibo no siempre
+            cambia igual que el consumo: también influyen cargos básicos, tarifas y otros conceptos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CÓMO CUIDAR ===================== -->
+    <section class="section" id="cuidar">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">05 · Manos a la obra</p>
+          <h2>Formas de cuidar el agua en casa</h2>
+          <p>Pequeños cambios, gran diferencia. Toca cada tarjeta para ver cuánta agua puedes ahorrar.</p>
+        </header>
+
+        <div class="filters reveal" role="group" aria-label="Filtrar consejos">
+          <button class="chip active" data-filter="todos">Todos</button>
+          <button class="chip" data-filter="bano">Baño</button>
+          <button class="chip" data-filter="cocina">Cocina y ropa</button>
+          <button class="chip" data-filter="exterior">Exteriores</button>
+          <button class="chip" data-filter="control">Control</button>
+        </div>
+
+        <div class="tips">
+
+          <!-- 1. Ducha corta -->
+          <article class="tip reveal" data-cat="bano" id="tip-ducha" tabindex="0">
+            <div class="tip-inner">
+              <div class="tip-front">
+                <svg viewBox="0 0 200 160" aria-hidden="true">
+                  <rect x="0" y="0" width="200" height="160" rx="18" fill="#e9f8ff"/>
+                  <g fill="#cfeefd"><rect x="10" y="10" width="20" height="20"/><rect x="34" y="10" width="20" height="20"/><rect x="10" y="34" width="20" height="20"/><rect x="34" y="34" width="20" height="20"/></g>
+                  <!-- regadera -->
+                  <path d="M120 14 v18 h-26" stroke="#8aa6b5" stroke-width="5" fill="none" stroke-linecap="round"/>
+                  <path d="M80 30 h28 l-4 10 h-20z" fill="#8aa6b5"/>
+                  <g stroke="#38b6e8" stroke-width="3" stroke-linecap="round" class="shower">
+                    <path d="M86 46 l-4 14"/><path d="M94 46 l0 16"/><path d="M102 46 l4 14"/>
+                  </g>
+                  <!-- persona -->
+                  <circle cx="94" cy="78" r="14" fill="#f2c8a0"/>
+                  <path d="M80 74 q14 -18 28 0" fill="#3b2a20"/>
+                  <circle cx="89" cy="80" r="1.8" fill="#0b3b5c"/><circle cx="99" cy="80" r="1.8" fill="#0b3b5c"/>
+                  <path d="M89 86 q5 4 10 0" stroke="#0b3b5c" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path d="M76 140 q0 -44 18 -44 q18 0 18 44z" fill="#7fd3f5"/>
+                  <path d="M78 106 l-12 -16 M110 106 l12 -16" stroke="#f2c8a0" stroke-width="7" stroke-linecap="round"/>
+                  <!-- espuma -->
+                  <g fill="#fff"><circle cx="86" cy="66" r="5"/><circle cx="96" cy="63" r="6"/><circle cx="104" cy="67" r="4"/></g>
+                  <!-- reloj -->
+                  <g transform="translate(155 70)">
+                    <circle r="26" fill="#fff" stroke="#5cc785" stroke-width="5"/>
+                    <path d="M0 -14 V0 L10 6" stroke="#0b3b5c" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <text y="44" text-anchor="middle" class="svg-tag">5 min</text>
+                  </g>
+                  <rect x="20" y="140" width="160" height="10" rx="5" fill="#bfe8fb"/>
+                </svg>
+                <h3>Duchas de 5 minutos</h3>
+                <p>Ponle música o un temporizador y cierra la llave mientras te enjabonas.</p>
+              </div>
+              <div class="tip-back">
+                <p class="saving">Ahorro aprox.</p>
+                <p class="saving-num">≈ 40 L</p>
+                <p>por ducha si pasas de 10 a 5 minutos con una regadera de ~8 L/min.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Cepillado -->
+          <article class="tip reveal" data-cat="bano" id="tip-cepillado" tabindex="0">
+            <div class="tip-inner">
+              <div class="tip-front">
+                <svg viewBox="0 0 200 160" aria-hidden="true">
+                  <rect width="200" height="160" rx="18" fill="#effbf3"/>
+                  <!-- espejo -->
+                  <rect x="40" y="12" width="70" height="50" rx="10" fill="#d9f3ff" stroke="#9ccfe6" stroke-width="3"/>
+                  <path d="M54 24 l14 -6 M56 34 l24 -10" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                  <!-- lavamanos -->
+                  <path d="M20 110 h120 q0 26 -30 26 h-60 q-30 0 -30 -26z" fill="#fff" stroke="#9ccfe6" stroke-width="3"/>
+                  <path d="M60 110 v-14 h18" stroke="#8aa6b5" stroke-width="6" fill="none" stroke-linecap="round"/>
+                  <circle cx="60" cy="92" r="6" fill="#5cc785"/>
+                  <!-- X sobre agua -->
+                  <g stroke="#ff7a7a" stroke-width="4" stroke-linecap="round"><path d="M70 100 l10 10 M80 100 l-10 10"/></g>
+                  <!-- persona -->
+                  <circle cx="150" cy="56" r="16" fill="#c99573"/>
+                  <path d="M134 52 q16 -22 32 0 q-4 -6 -16 -6 q-12 0 -16 6z" fill="#1f1a17"/>
+                  <circle cx="145" cy="56" r="2" fill="#0b3b5c"/><circle cx="156" cy="56" r="2" fill="#0b3b5c"/>
+                  <path d="M128 140 q0 -60 22 -60 q22 0 22 60z" fill="#5cc785"/>
+                  <path d="M134 96 q-10 -10 4 -30" stroke="#c99573" stroke-width="7" fill="none" stroke-linecap="round"/>
+                  <!-- cepillo -->
+                  <rect x="134" y="60" width="18" height="4" rx="2" fill="#38b6e8" transform="rotate(-20 140 62)"/>
+                  <g fill="#fff"><circle cx="150" cy="66" r="2.5"/><circle cx="155" cy="64" r="2"/></g>
+                </svg>
+                <h3>Cierra la llave al cepillarte</h3>
+                <p>Usa un vaso con agua para enjuagarte. El 94 % de los vecinos ya lo hace.</p>
+              </div>
+              <div class="tip-back">
+                <p class="saving">Ahorro aprox.</p>
+                <p class="saving-num">≈ 12 L</p>
+                <p>cada vez que te cepillas con la llave cerrada en vez de abierta.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Platos -->
+          <article class="tip reveal" data-cat="cocina" id="tip-platos" tabindex="0">
+            <div class="tip-inner">
+              <div class="tip-front">
+                <svg viewBox="0 0 200 160" aria-hidden="true">
+                  <rect width="200" height="160" rx="18" fill="#e9f8ff"/>
+                  <rect x="10" y="104" width="180" height="46" rx="6" fill="#fff" stroke="#9ccfe6" stroke-width="3"/>
+                  <rect x="30" y="94" width="90" height="16" rx="6" fill="#d9f3ff" stroke="#9ccfe6" stroke-width="3"/>
+                  <path d="M76 94 v-26 h16 v8" stroke="#8aa6b5" stroke-width="6" fill="none" stroke-linecap="round"/>
+                  <!-- platos -->
+                  <ellipse cx="50" cy="92" rx="18" ry="6" fill="#fff" stroke="#9ccfe6" stroke-width="2"/>
+                  <ellipse cx="50" cy="86" rx="18" ry="6" fill="#fff" stroke="#9ccfe6" stroke-width="2"/>
+                  <!-- burbujas -->
+                  <g fill="#fff" stroke="#bfe8fb" stroke-width="2"><circle cx="104" cy="84" r="6"/><circle cx="114" cy="76" r="4"/><circle cx="96" cy="74" r="3"/></g>
+                  <!-- persona -->
+                  <circle cx="150" cy="40" r="15" fill="#f2c8a0"/>
+                  <path d="M134 40 q2 -22 32 -10 q4 14 -2 18 q0 -12 -10 -14 q-10 2 -20 6z" fill="#8a4b2a"/>
+                  <circle cx="146" cy="42" r="2" fill="#0b3b5c"/><circle cx="155" cy="42" r="2" fill="#0b3b5c"/>
+                  <path d="M147 48 q4 3 8 0" stroke="#0b3b5c" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path d="M128 104 q0 -48 22 -48 q22 0 22 48z" fill="#7fd3f5"/>
+                  <rect x="136" y="70" width="28" height="34" rx="4" fill="#fff" opacity=".8"/>
+                  <path d="M134 74 q-14 4 -24 4" stroke="#f2c8a0" stroke-width="7" fill="none" stroke-linecap="round"/>
+                  <rect x="100" y="72" width="14" height="10" rx="3" fill="#ffd166"/>
+                </svg>
+                <h3>Enjabona con la llave cerrada</h3>
+                <p>Primero enjabona todo y luego enjuaga de una sola vez, o usa un platón.</p>
+              </div>
+              <div class="tip-back">
+                <p class="saving">Ahorro aprox.</p>
+                <p class="saving-num">≈ 50 L</p>
+                <p>por lavada frente a dejar la llave abierta durante todo el proceso.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Lavadora -->
+          <article class="tip reveal" data-cat="cocina" id="tip-lavadora" tabindex="0">
+            <div class="tip-inner">
+              <div class="tip-front">
+                <svg viewBox="0 0 200 160" aria-hidden="true">
+                  <rect width="200" height="160" rx="18" fill="#effbf3"/>
+                  <rect x="22" y="30" width="86" height="110" rx="10" fill="#fff" stroke="#9ccfe6" stroke-width="3"/>
+                  <rect x="22" y="30" width="86" height="20" rx="10" fill="#d9f3ff"/>
+                  <circle cx="40" cy="40" r="4" fill="#5cc785"/><circle cx="54" cy="40" r="4" fill="#38b6e8"/>
+                  <circle cx="65" cy="94" r="30" fill="#d9f3ff" stroke="#9ccfe6" stroke-width="4"/>
+                  <g class="spin" style="transform-origin:65px 94px">
+                    <path d="M45 98 q20 -16 40 0 q-20 18 -40 0z" fill="#7fd3f5"/>
+                    <circle cx="58" cy="88" r="7" fill="#ffd166"/><circle cx="74" cy="100" r="6" fill="#5cc785"/>
+                  </g>
+                  <text x="65" y="152" text-anchor="middle" class="svg-tag">carga completa</text>
+                  <!-- persona con canasta -->
+                  <circle cx="150" cy="50" r="15" fill="#8d5a3b"/>
+                  <path d="M135 48 q15 -24 30 0 l2 14 q-4 -14 -17 -16 q-13 2 -17 16z" fill="#1f1a17"/>
+                  <circle cx="145" cy="51" r="2" fill="#fff"/><circle cx="155" cy="51" r="2" fill="#fff"/>
+                  <path d="M128 140 q0 -72 22 -72 q22 0 22 72z" fill="#ffb3c1"/>
+                  <path d="M118 104 h44 l-6 26 h-32z" fill="#f3c969"/>
+                  <path d="M122 104 q20 -16 36 0" fill="#7fd3f5"/>
+                  <path d="M132 90 l-8 16 M168 90 l-6 16" stroke="#8d5a3b" stroke-width="7" stroke-linecap="round"/>
+                </svg>
+                <h3>Lavadora solo con carga completa</h3>
+                <p>Junta la ropa y usa el ciclo adecuado. 28 de 32 hogares lavan 3 o más veces al mes.</p>
+              </div>
+              <div class="tip-back">
+                <p class="saving">Ahorro aprox.</p>
+                <p class="saving-num">≈ 70 L</p>
+                <p>por cada lavada que evitas al juntar dos cargas a medias en una completa.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Reutilizar -->
+          <article class="tip reveal" data-cat="cocina" id="tip-reutilizar" tabindex="0">
+            <div class="tip-inner">
+              <div class="tip-front">
+                <svg viewBox="0 0 200 160" aria-hidden="true">
+                  <rect width="200" height="160" rx="18" fill="#e9f8ff"/>
+                  <!-- flechas de reciclaje -->
+                  <g fill="none" stroke="#5cc785" stroke-width="6" stroke-linecap="round">
+                    <path d="M56 40 a34 34 0 0 1 56 -6"/><path d="M118 74 a34 34 0 0 1 -50 26"/>
+                  </g>
+                  <path d="M108 22 l10 12 l-14 4z" fill="#5cc785"/>
+                  <path d="M74 110 l-12 -10 l14 -6z" fill="#5cc785"/>
+                  <!-- balde -->
+                  <path d="M52 100 h44 l-6 46 h-32z" fill="#38b6e8"/>
+                  <ellipse cx="74" cy="100" rx="22" ry="6" fill="#7fd3f5"/>
+                  <path d="M54 100 q20 -26 40 0" stroke="#0b3b5c" stroke-width="3" fill="none"/>
+                  <!-- persona trapeando -->
+                  <circle cx="150" cy="44" r="14" fill="#f2c8a0"/>
+                  <path d="M136 42 q14 -22 28 0z" fill="#e0a43a"/>
+                  <circle cx="146" cy="46" r="2" fill="#0b3b5c"/><circle cx="155" cy="46" r="2" fill="#0b3b5c"/>
+                  <path d="M130 140 q0 -80 20 -80 q20 0 20 80z" fill="#a8e6b8"/>
+                  <path d="M128 72 l52 76" stroke="#8a5a3a" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M172 140 l18 6 l-6 8 l-20 -6z" fill="#ffd166"/>
+                  <path d="M136 82 l6 18 M166 82 l-6 22" stroke="#f2c8a0" stroke-width="7" stroke-linecap="round"/>
+                </svg>
+                <h3>Reutiliza el agua</h3>
+                <p>Recoge en un balde el agua fría de la ducha o de la lavadora para trapear o vaciar el sanitario.</p>
+              </div>
+              <div class="tip-back">
+                <p class="saving">Ahorro aprox.</p>
+                <p class="saving-num">≈ 10 L</p>
+                <p>por día solo recogiendo el agua mientras se calienta la ducha.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Fugas -->
+          <article class="tip reveal" data-cat="control" id="tip-fugas" tabindex="0">
+            <div class="tip-inner">
+              <div class="tip-front">
+                <svg viewBox="0 0 200 160" aria-hidden="true">
+                  <rect width="200" height="160" rx="18" fill="#effbf3"/>
+                  <!-- tubería -->
+                  <path d="M0 50 h80 q16 0 16 16 v94" stroke="#8aa6b5" stroke-width="16" fill="none"/>
+                  <rect x="70" y="40" width="14" height="20" rx="3" fill="#6b8a99"/>
+                  <!-- gota de fuga -->
+                  <path class="drip d1" d="M110 80 c-5 8 -8 12 -8 15 a8 8 0 0 0 16 0 c0 -3 -3 -7 -8 -15z" fill="#38b6e8"/>
+                  <!-- persona con lupa -->
+                  <circle cx="156" cy="56" r="15" fill="#c99573"/>
+                  <path d="M141 54 q15 -24 30 0 q-6 -8 -15 -8 q-9 0 -15 8z" fill="#3b2a20"/>
+                  <rect x="140" y="38" width="32" height="8" rx="4" fill="#ffd166"/>
+                  <circle cx="151" cy="58" r="2" fill="#0b3b5c"/><circle cx="161" cy="58" r="2" fill="#0b3b5c"/>
+                  <path d="M134 150 q0 -74 22 -74 q22 0 22 74z" fill="#f3c969"/>
+                  <path d="M140 92 l-14 -6" stroke="#c99573" stroke-width="7" stroke-linecap="round"/>
+                  <circle cx="118" cy="84" r="14" fill="#ffffff" fill-opacity=".5" stroke="#0b3b5c" stroke-width="4"/>
+                  <path d="M128 94 l8 8" stroke="#0b3b5c" stroke-width="5" stroke-linecap="round"/>
+                  <!-- medidor -->
+                  <g transform="translate(40 116)">
+                    <circle r="22" fill="#fff" stroke="#9ccfe6" stroke-width="3"/>
+                    <path d="M0 0 L10 -12" stroke="#ff7a7a" stroke-width="3" stroke-linecap="round"/>
+                    <circle r="3" fill="#0b3b5c"/>
+                  </g>
+                </svg>
+                <h3>Busca fugas escondidas</h3>
+                <p>Cierra todas las llaves y mira el contador: si se mueve, hay una fuga. Revisa también el tanque del sanitario.</p>
+              </div>
+              <div class="tip-back">
+                <p class="saving">Ojo</p>
+                <p class="saving-num">≈ 30 L/día</p>
+                <p>puede perder una llave que gotea o un sanitario con fuga. ¡Son más de 900 L al mes!</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. Riego -->
+          <article class="tip reveal" data-cat="exterior" id="tip-riego" tabindex="0">
+            <div class="tip-inner">
+              <div class="tip-front">
+                <svg viewBox="0 0 200 160" aria-hidden="true">
+                  <rect width="200" height="160" rx="18" fill="#e9f8ff"/>
+                  <!-- sol de la mañana -->
+                  <circle cx="30" cy="34" r="16" fill="#ffd166"/>
+                  <g stroke="#ffd166" stroke-width="3" stroke-linecap="round"><path d="M30 8 v6 M30 54 v6 M4 34 h6 M50 34 h6 M12 16 l4 4 M44 48 l4 4"/></g>
+                  <!-- matera y planta -->
+                  <path d="M30 120 h40 l-6 30 h-28z" fill="#e0895a"/>
+                  <path d="M50 120 v-24" stroke="#5cc785" stroke-width="4"/>
+                  <path d="M50 104 q-18 -6 -20 -20 q16 2 20 20z M50 98 q16 -8 20 -22 q-16 4 -20 22z" fill="#5cc785"/>
+                  <!-- agua -->
+                  <g stroke="#38b6e8" stroke-width="3" stroke-linecap="round" class="shower"><path d="M80 82 l-8 10"/><path d="M86 86 l-6 12"/><path d="M92 88 l-4 12"/></g>
+                  <!-- regadera -->
+                  <path d="M96 84 l14 -14 h30 v28 h-30z" fill="#5cc785"/>
+                  <path d="M96 84 l-14 -6" stroke="#5cc785" stroke-width="6" stroke-linecap="round"/>
+                  <!-- persona -->
+                  <circle cx="160" cy="40" r="14" fill="#f2c8a0"/>
+                  <path d="M146 38 q14 -22 28 0 q4 14 -2 20 q2 -14 -12 -18 q-10 2 -14 -2z" fill="#6d3f20"/>
+                  <circle cx="156" cy="42" r="2" fill="#0b3b5c"/><circle cx="165" cy="42" r="2" fill="#0b3b5c"/>
+                  <path d="M157 48 q3 3 7 0" stroke="#0b3b5c" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path d="M140 150 q0 -94 20 -94 q20 0 20 94z" fill="#7fd3f5"/>
+                  <path d="M146 76 l-8 6" stroke="#f2c8a0" stroke-width="7" stroke-linecap="round"/>
+                </svg>
+                <h3>Riega temprano y con regadera</h3>
+                <p>En la mañana o al final de la tarde se evapora menos. Evita la manguera abierta.</p>
+              </div>
+              <div class="tip-back">
+                <p class="saving">Ahorro aprox.</p>
+                <p class="saving-num">≈ 100 L</p>
+                <p>por riego al cambiar 10 minutos de manguera por una regadera de 10 litros.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8. Balde -->
+          <article class="tip reveal" data-cat="exterior" id="tip-balde" tabindex="0">
+            <div class="tip-inner">
+              <div class="tip-front">
+                <svg viewBox="0 0 200 160" aria-hidden="true">
+                  <rect width="200" height="160" rx="18" fill="#effbf3"/>
+                  <!-- carro -->
+                  <path d="M10 112 q0 -20 20 -22 l18 -22 h50 l20 22 q20 2 20 22 v14 h-128z" fill="#7fd3f5"/>
+                  <path d="M54 74 h20 v18 h-34z M80 74 h16 l14 18 h-30z" fill="#e9f8ff"/>
+                  <circle cx="40" cy="128" r="12" fill="#0b3b5c"/><circle cx="108" cy="128" r="12" fill="#0b3b5c"/>
+                  <circle cx="40" cy="128" r="5" fill="#cfd8de"/><circle cx="108" cy="128" r="5" fill="#cfd8de"/>
+                  <!-- manguera tachada -->
+                  <g transform="translate(150 30)">
+                    <circle r="18" fill="#fff" stroke="#ff7a7a" stroke-width="4"/>
+                    <path d="M-8 6 q-4 -14 8 -12 q12 2 8 -6" stroke="#5cc785" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M-12 12 l24 -24" stroke="#ff7a7a" stroke-width="4"/>
+                  </g>
+                  <!-- balde y esponja -->
+                  <path d="M140 108 h40 l-5 40 h-30z" fill="#5cc785"/>
+                  <ellipse cx="160" cy="108" rx="20" ry="5" fill="#a8e6b8"/>
+                  <rect x="150" y="92" width="20" height="12" rx="4" fill="#ffd166"/>
+                  <g fill="#fff" stroke="#bfe8fb"><circle cx="138" cy="86" r="5"/><circle cx="128" cy="96" r="3"/></g>
+                </svg>
+                <h3>Balde en vez de manguera</h3>
+                <p>Para lavar el carro, balcones, terrazas o elementos de mascotas, usa balde y esponja.</p>
+              </div>
+              <div class="tip-back">
+                <p class="saving">Ahorro aprox.</p>
+                <p class="saving-num">≈ 300 L</p>
+                <p>por lavada de carro: la manguera gasta cerca de 400 L y dos o tres baldes, unos 40 L.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 9. Recibo -->
+          <article class="tip reveal" data-cat="control" id="tip-recibo" tabindex="0">
+            <div class="tip-inner">
+              <div class="tip-front">
+                <svg viewBox="0 0 200 160" aria-hidden="true">
+                  <rect width="200" height="160" rx="18" fill="#e9f8ff"/>
+                  <!-- recibo -->
+                  <path d="M28 18 h70 v120 l-10 -6 l-10 6 l-10 -6 l-10 6 l-10 -6 l-10 6 l-10 -6z" fill="#fff" stroke="#9ccfe6" stroke-width="3"/>
+                  <rect x="38" y="30" width="40" height="8" rx="4" fill="#38b6e8"/>
+                  <path d="M38 50 h50 M38 62 h36" stroke="#cfeefd" stroke-width="5" stroke-linecap="round"/>
+                  <g fill="#5cc785"><rect x="40" y="96" width="10" height="20" rx="2"/><rect x="56" y="86" width="10" height="30" rx="2"/><rect x="72" y="100" width="10" height="16" rx="2"/></g>
+                  <text x="62" y="80" text-anchor="middle" class="svg-tag svg-tag-sm">m³</text>
+                  <!-- persona leyendo -->
+                  <circle cx="150" cy="52" r="15" fill="#f2c8a0"/>
+                  <path d="M134 50 q16 -26 32 0 l2 22 q-6 -4 -6 -18 q-10 -10 -22 0 q0 14 -6 18z" fill="#2b1d16"/>
+                  <circle cx="145" cy="54" r="5" fill="none" stroke="#0b3b5c" stroke-width="2"/><circle cx="157" cy="54" r="5" fill="none" stroke="#0b3b5c" stroke-width="2"/>
+                  <path d="M150 54 h2" stroke="#0b3b5c" stroke-width="2"/>
+                  <path d="M128 150 q0 -78 22 -78 q22 0 22 78z" fill="#5cc785"/>
+                  <path d="M134 94 l-30 -8" stroke="#f2c8a0" stroke-width="7" stroke-linecap="round"/>
+                  <!-- signo -->
+                  <circle cx="182" cy="22" r="12" fill="#ffd166"/>
+                  <text x="182" y="28" text-anchor="middle" class="svg-tag">!</text>
+                </svg>
+                <h3>Revisa tu recibo cada mes</h3>
+                <p>Compara los m³ con el mes anterior. Si sube sin razón, revisa hábitos y fugas.</p>
+              </div>
+              <div class="tip-back">
+                <p class="saving">Dato del estudio</p>
+                <p class="saving-num">62,5 %</p>
+                <p>de los encuestados no revisa con frecuencia su recibo. Usa el comparador de recibos más abajo.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 10. Dispositivos -->
+          <article class="tip reveal" data-cat="bano" id="tip-dispositivos" tabindex="0">
+            <div class="tip-inner">
+              <div class="tip-front">
+                <svg viewBox="0 0 200 160" aria-hidden="true">
+                  <rect width="200" height="160" rx="18" fill="#effbf3"/>
+                  <!-- sanitario -->
+                  <rect x="22" y="40" width="50" height="40" rx="6" fill="#fff" stroke="#9ccfe6" stroke-width="3"/>
+                  <path d="M18 86 h70 q0 30 -30 34 l4 22 h-22 l2 -22 q-24 -6 -24 -34z" fill="#fff" stroke="#9ccfe6" stroke-width="3"/>
+                  <g transform="translate(47 60)"><circle r="9" fill="#a8e6b8"/><path d="M-4 0 h8 M0 -4 v8" stroke="#fff" stroke-width="2"/></g>
+                  <text x="48" y="34" text-anchor="middle" class="svg-tag svg-tag-sm">doble descarga</text>
+                  <!-- llave con aireador -->
+                  <path d="M120 40 h40 v12 h-18 v14" stroke="#8aa6b5" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="134" y="66" width="16" height="10" rx="2" fill="#5cc785"/>
+                  <g stroke="#7fd3f5" stroke-width="2" stroke-linecap="round" class="shower"><path d="M136 80 v18"/><path d="M140 80 v22"/><path d="M144 80 v20"/><path d="M148 80 v18"/></g>
+                  <text x="142" y="124" text-anchor="middle" class="svg-tag svg-tag-sm">aireador</text>
+                  <!-- herramienta -->
+                  <path d="M178 96 l14 14" stroke="#0b3b5c" stroke-width="6" stroke-linecap="round"/>
+                  <circle cx="176" cy="94" r="8" fill="none" stroke="#0b3b5c" stroke-width="5"/>
+                </svg>
+                <h3>Instala ahorradores</h3>
+                <p>Aireadores en las llaves, regaderas de bajo flujo y sanitarios de doble descarga.</p>
+              </div>
+              <div class="tip-back">
+                <p class="saving">Ahorro aprox.</p>
+                <p class="saving-num">30 – 50 %</p>
+                <p>del agua que sale por llaves y regaderas, sin sentir la diferencia.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HUELLA HÍDRICA (CUESTIONARIO) ===================== -->
+    <section class="section section-blue" id="huella">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">06 · Tu diagnóstico</p>
+          <h2>Calcula tu huella hídrica en casa</h2>
+          <p>
+            Responde con sinceridad. Al final verás cuántos litros usas al día, aproximadamente,
+            lo que estás haciendo bien y en qué puedes mejorar. Nada se guarda ni se envía a ningún servidor.
+          </p>
+        </header>
+
+        <div class="quiz-card reveal" id="quiz">
+          <div class="quiz-top">
+            <div class="quiz-progress"><div id="quiz-bar"></div></div>
+            <span id="quiz-count">Pregunta 1 de 12</span>
+          </div>
+          <form id="quiz-form" novalidate>
+            <div id="quiz-questions"></div>
+            <div class="quiz-nav">
+              <button type="button" class="btn btn-ghost" id="quiz-prev" disabled>Anterior</button>
+              <button type="button" class="btn btn-primary" id="quiz-next">Siguiente</button>
+              <button type="submit" class="btn btn-primary" id="quiz-submit" hidden>Ver mi resultado</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Resultados -->
+        <div class="results" id="results" hidden>
+          <div class="result-hero">
+            <div class="gauge-wrap">
+              <svg viewBox="0 0 220 220" class="gauge" aria-hidden="true">
+                <defs>
+                  <clipPath id="dropClip">
+                    <path d="M110 12 C80 60 46 96 46 136 a64 64 0 0 0 128 0 C174 96 140 60 110 12z"/>
+                  </clipPath>
+                </defs>
+                <path d="M110 12 C80 60 46 96 46 136 a64 64 0 0 0 128 0 C174 96 140 60 110 12z" fill="#ffffff" stroke="#38b6e8" stroke-width="5"/>
+                <g clip-path="url(#dropClip)">
+                  <g id="gauge-water" style="transform: translateY(200px)">
+                    <path class="water-wave" d="M-110 0 q27.5 -12 55 0 t55 0 t55 0 t55 0 t55 0 t55 0 t55 0 t55 0 V220 H-110Z" fill="#7fd3f5"/>
+                  </g>
+                </g>
+                <text x="110" y="140" text-anchor="middle" class="gauge-num" id="gauge-num">0</text>
+                <text x="110" y="166" text-anchor="middle" class="gauge-unit">litros / día</text>
+              </svg>
+            </div>
+            <div class="result-summary">
+              <p class="eyebrow">Tu huella hídrica doméstica estimada</p>
+              <h3 id="result-title">—</h3>
+              <p id="result-text"></p>
+              <div class="score-row">
+                <div class="score-box"><span id="score-pts">0</span><small>puntos de hábitos / 100</small></div>
+                <div class="score-box"><span id="score-month">0</span><small>litros al mes (tú)</small></div>
+                <div class="score-box"><span id="score-tanks">0</span><small>tanques de 1.000 L al año</small></div>
+              </div>
+              <p class="ref-note">Referencia: la OMS considera que entre 50 y 100 litros por persona al día cubren las necesidades básicas.</p>
+            </div>
+          </div>
+
+          <div class="result-grid">
+            <div class="result-col result-good">
+              <h4>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#5cc785"/><path d="M7 12l3 3 7-7" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+                Lo estás haciendo bien
+              </h4>
+              <ul id="list-good"></ul>
+            </div>
+            <div class="result-col result-improve">
+              <h4>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#38b6e8"/><path d="M12 6v8M12 17v1" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+                Puedes mejorar
+              </h4>
+              <ul id="list-improve"></ul>
+            </div>
+          </div>
+
+          <div class="breakdown">
+            <h4>¿En qué se va tu agua? <small>(litros por persona al día)</small></h4>
+            <div id="breakdown-bars"></div>
+            <p class="data-note" id="saving-potential"></p>
+          </div>
+
+          <div class="compare-box" id="compare-box"></div>
+
+          <div class="result-actions">
+            <button class="btn btn-ghost" id="quiz-restart">Volver a hacer el cuestionario</button>
+            <button class="btn btn-ghost" id="quiz-copy">Copiar mi resultado</button>
+            <a href="#reto" class="btn btn-primary">Aceptar el reto de 7 días</a>
+          </div>
+        </div>
+
+        <p class="disclaimer">
+          * La huella hídrica completa incluye también el agua "invisible" usada para producir alimentos, ropa y energía.
+          Aquí calculamos solo la <strong>huella directa en el hogar</strong> con valores promedio de referencia; es una estimación educativa, no una medición.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== COMPARADOR DE RECIBOS ===================== -->
+    <section class="section" id="recibo">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">07 · Tu recibo</p>
+          <h2>TRADUCE TU RECIBO DEL AGUA</h2>
+          <p>
+            Busca estos datos en tus recibos, escríbelos y compara tus periodos. La página hace los mismos cálculos
+            que hicimos en la investigación: consumo por periodo, consumo diario, consumo por persona y la variación del costo.
+          </p>
+        </header>
+
+        <div class="bill-guide reveal">
+          <!-- Dibujo guía de un recibo genérico -->
+          <svg viewBox="0 0 520 420" class="bill-svg" role="img" aria-labelledby="billTitle">
+            <title id="billTitle">Dibujo de un recibo del agua con los datos que debes buscar</title>
+            <path d="M40 16 h300 v380 l-15 -10 l-15 10 l-15 -10 l-15 10 l-15 -10 l-15 10 l-15 -10 l-15 10 l-15 -10 l-15 10 l-15 -10 l-15 10 l-15 -10 l-15 10 l-15 -10 l-15 10 l-15 -10 l-15 10 l-15 -10 l-15 10 l-15 -10 l-15 10z" fill="#fff" stroke="#9ccfe6" stroke-width="3"/>
+            <!-- encabezado -->
+            <rect x="40" y="16" width="300" height="46" fill="#38b6e8"/>
+            <path d="M68 28 c-6 10 -9 14 -9 18 a9 9 0 0 0 18 0 c0 -4 -3 -8 -9 -18z" fill="#fff"/>
+            <text x="90" y="46" class="bill-head">RECIBO DEL AGUA</text>
+            <!-- 1 periodo -->
+            <rect x="56" y="76" width="268" height="44" rx="8" class="bill-box b-1"/>
+            <text x="68" y="94" class="bill-small">Periodo facturado</text>
+            <text x="68" y="112" class="bill-text">01 JUL – 28 JUL · 28 días</text>
+            <!-- 2 consumo -->
+            <rect x="56" y="132" width="268" height="78" rx="8" class="bill-box b-2"/>
+            <text x="68" y="150" class="bill-small">Lectura anterior · Lectura actual</text>
+            <text x="68" y="168" class="bill-text">1.240 m³ · 1.248 m³</text>
+            <text x="68" y="196" class="bill-small">Consumo del periodo</text>
+            <text x="230" y="198" class="bill-big">8 m³</text>
+            <!-- barras de historial -->
+            <g fill="#a8e6b8"><rect x="236" y="148" width="10" height="20"/><rect x="250" y="142" width="10" height="26"/><rect x="264" y="150" width="10" height="18"/><rect x="278" y="144" width="10" height="24"/><rect x="292" y="140" width="10" height="28" fill="#38b6e8"/></g>
+            <!-- 3 acueducto / 4 alcantarillado -->
+            <rect x="56" y="222" width="268" height="36" rx="8" class="bill-box b-3"/>
+            <text x="68" y="245" class="bill-text">Acueducto</text>
+            <text x="312" y="245" class="bill-text" text-anchor="end">$ 40.000</text>
+            <rect x="56" y="266" width="268" height="36" rx="8" class="bill-box b-4"/>
+            <text x="68" y="289" class="bill-text">Alcantarillado</text>
+            <text x="312" y="289" class="bill-text" text-anchor="end">$ 36.000</text>
+            <!-- otros cargos -->
+            <text x="68" y="324" class="bill-small">Aseo, energía y otros cargos</text>
+            <text x="312" y="324" class="bill-small" text-anchor="end">$ ...</text>
+            <!-- 5 total -->
+            <rect x="56" y="336" width="268" height="36" rx="8" class="bill-box b-5"/>
+            <text x="68" y="359" class="bill-text"><tspan font-weight="800">TOTAL A PAGAR</tspan></text>
+            <text x="312" y="359" class="bill-text" text-anchor="end">$ ...</text>
+            <!-- marcadores numerados -->
+            <g class="bill-num"><circle cx="356" cy="98" r="14"/><text x="356" y="103">1</text></g>
+            <g class="bill-num"><circle cx="356" cy="172" r="14"/><text x="356" y="177">2</text></g>
+            <g class="bill-num bill-num-green"><circle cx="356" cy="240" r="14"/><text x="356" y="245">3</text></g>
+            <g class="bill-num bill-num-green"><circle cx="356" cy="284" r="14"/><text x="356" y="289">4</text></g>
+            <g class="bill-num bill-num-warn"><circle cx="356" cy="354" r="14"/><text x="356" y="359">5</text></g>
+            <!-- lupa -->
+            <g transform="translate(440 120)">
+              <circle r="38" fill="#e9f8ff" stroke="#0b3b5c" stroke-width="6"/>
+              <path d="M26 26 l34 34" stroke="#0b3b5c" stroke-width="10" stroke-linecap="round"/>
+              <text y="10" text-anchor="middle" class="bill-big">m³</text>
+            </g>
+          </svg>
+          <ol class="bill-steps">
+            <li><b>Periodo facturado.</b> Las fechas del cobro. Cuenta los días: no todos los periodos duran lo mismo.</li>
+            <li><b>Consumo del periodo (m³).</b> Es la lectura actual menos la anterior. 1 m³ = 1.000 litros.</li>
+            <li><b>Acueducto.</b> Lo que pagas por el agua que llega a tu casa.</li>
+            <li><b>Alcantarillado.</b> Lo que pagas por el agua usada que sale de tu casa.</li>
+            <li><b>Total a pagar.</b> No lo uses para comparar: incluye aseo, energía, cuentas vencidas u otros cargos.</li>
+          </ol>
+        </div>
+
+        <form class="cmp-card reveal" id="cmp-form" novalidate>
+          <div class="cmp-top">
+            <label>
+              <span>¿Cuántos recibos quieres comparar?</span>
+              <select id="cmp-count">
+                <option value="1">1 recibo</option>
+                <option value="2" selected>2 recibos</option>
+                <option value="3">3 recibos</option>
+                <option value="4">4 recibos</option>
+                <option value="5">5 recibos</option>
+                <option value="6">6 recibos</option>
+              </select>
+            </label>
+            <label>
+              <span>Personas que viven en la casa</span>
+              <input type="number" id="cmp-people" min="1" step="1" value="2">
+            </label>
+          </div>
+          <div class="cmp-receipts" id="cmp-receipts"></div>
+        </form>
+
+        <div class="cmp-results" id="cmp-results" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ===================== RETO 7 DÍAS ===================== -->
+    <section class="section section-green" id="reto">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">08 · Reto BochaGota</p>
+          <h2>Reto de 7 días por el agua</h2>
+          <p>Marca cada acción cuando la cumplas. Tu progreso se guarda solo en este navegador.</p>
+        </header>
+        <div class="challenge reveal">
+          <ul class="challenge-list" id="challenge-list"></ul>
+          <div class="challenge-side">
+            <svg viewBox="0 0 160 200" class="challenge-drop" aria-hidden="true">
+              <defs>
+                <clipPath id="chClip"><path d="M80 10 C56 50 26 82 26 120 a54 54 0 0 0 108 0 C134 82 104 50 80 10z"/></clipPath>
+              </defs>
+              <path d="M80 10 C56 50 26 82 26 120 a54 54 0 0 0 108 0 C134 82 104 50 80 10z" fill="#fff" stroke="#5cc785" stroke-width="5"/>
+              <rect id="challenge-fill" x="0" y="180" width="160" height="200" fill="#a8e6b8" clip-path="url(#chClip)"/>
+              <text x="80" y="130" text-anchor="middle" class="gauge-num" id="challenge-pct">0%</text>
+            </svg>
+            <p id="challenge-msg">¡Empieza hoy con la primera acción!</p>
+            <button class="btn btn-ghost" id="challenge-reset">Reiniciar reto</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EL PROYECTO ===================== -->
+    <section class="section" id="proyecto">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">09 · El proyecto</p>
+          <h2>¿Por qué hacemos esta investigación?</h2>
+        </header>
+        <div class="project-grid">
+          <div class="project-text reveal">
+            <p>
+              <strong>BochaGota</strong> es un proyecto realizado por estudiantes de
+              <strong>Ingeniería Multimedia de la Universidad Autónoma de Occidente</strong>, a partir de la investigación
+              <em>"Análisis del desperdicio de agua en las viviendas del sector Bochalema, Cali, y estrategias para promover su uso eficiente"</em>.
+            </p>
+            <p>
+              El agua es fundamental para la vida diaria y para el equilibrio de los ecosistemas. El crecimiento de la
+              población, la urbanización y los patrones de consumo en los hogares aumentan la presión sobre este recurso.
+              Además, un estudio realizado en hogares universitarios de Medellín (2023) muestra que <em>no saber qué medidas de ahorro
+              implementar</em> es una barrera real para cuidar el agua.
+            </p>
+            <p>
+              En Colombia, la <strong>Ley 373 de 1997</strong> creó el Programa para el Uso Eficiente y Ahorro del Agua,
+              que impulsa campañas educativas para fomentar una cultura de uso responsable. Esta página es nuestro aporte
+              a esa cultura, enfocada en Bochalema, una zona en pleno crecimiento residencial.
+            </p>
+          </div>
+          <div class="objectives reveal">
+            <h3>Objetivos de la investigación</h3>
+            <ol>
+              <li>Identificar los hábitos de consumo de agua en las viviendas de Bochalema.</li>
+              <li>Determinar el nivel de conocimiento de los habitantes sobre el uso eficiente y ahorro del agua.</li>
+              <li>Reconocer las actividades cotidianas que pueden contribuir al desperdicio del recurso.</li>
+              <li>Formular recomendaciones para promover el uso responsable del agua en los hogares.</li>
+            </ol>
+            <div class="method">
+              <div><b>Enfoque</b><span>Cuantitativo y descriptivo</span></div>
+              <div><b>Encuesta</b><span>32 residentes de Bochalema</span></div>
+              <div><b>Recibos</b><span>3 viviendas · 2 periodos de 2026</span></div>
+              <div><b>Análisis</b><span>Estadística descriptiva</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="voices reveal">
+          <h3>Lo que proponen los propios vecinos</h3>
+          <div class="voice-chips">
+            <span>Campañas de educación</span>
+            <span>Duchas más cortas</span>
+            <span>Cerrar las llaves</span>
+            <span>Reutilizar agua de ducha y lavadora</span>
+            <span>Equipos más eficientes</span>
+            <span>Indicadores de consumo por unidad residencial</span>
+            <span>Revisar la presión del agua</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="wave wave-up" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 40 C240 0 480 80 720 50 S1200 10 1440 50 L1440 0 L0 0Z"/></svg>
+    </div>
+    <div class="container footer-grid">
+      <div>
+        <a href="#inicio" class="brand brand-footer">
+          <svg class="brand-drop" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 4C22 20 12 31 12 42a20 20 0 0 0 40 0C52 31 42 20 32 4z" fill="#fff"/>
+            <path d="M18 46c6 4 16 6 28-2" stroke="var(--verde)" stroke-width="5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <span>Bocha<b>Gota</b></span>
+        </a>
+        <p>Mide tu huella, cuida cada gota.<br>Proyecto académico sin fines comerciales.</p>
+        <p class="small">Universidad Autónoma de Occidente · Santiago de Cali · 2026</p>
+      </div>
+      <div>
+        <h4>Autores</h4>
+        <ul class="authors">
+          <li>Juan José Mosquera Bermúdez</li>
+          <li>David Elías Castro Ochoa</li>
+          <li>Angela Gillian Arévalo Cortés</li>
+          <li>Juan Esteban Isaacs Roldán</li>
+          <li>Juan José Semanate García</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Fuentes</h4>
+        <ul class="sources">
+          <li>Encuesta a residentes de Bochalema (32 respuestas)</li>
+          <li>Recibos del agua de 3 viviendas del sector (Residencias 1, 2 y 3)</li>
+          <li>Ley 373 de 1997 · Congreso de Colombia</li>
+          <li>Revista Colombiana de Ciencias Sociales (2023)</li>
+          <li>FAO (2025) · Fundación Aquae (2025)</li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">Todas las ilustraciones fueron creadas para este proyecto. <a href="#top">Volver arriba ↑</a></p>
+  </footer>
+
+  <button class="to-top" id="to-top" aria-label="Volver arriba">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
